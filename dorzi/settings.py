@@ -79,16 +79,22 @@ WSGI_APPLICATION = 'dorzi.wsgi.application'
 # ==============================================================================
 # Database Configuration (Supabase PostgreSQL Connection)
 # ==============================================================================
-SUPABASE_DB_URL = "postgres://postgres.odlohlzubgqynqroazhf:9TXo4IrKT7qB5m2D@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"
+# SUPABASE_DB_URL = "postgres://postgres.odlohlzubgqynqroazhf:9TXo4IrKT7qB5m2D@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.environ.get('DATABASE_URL', SUPABASE_DB_URL),
+#         conn_max_age=0,
+#         ssl_require=True
+#     )
+# }
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', SUPABASE_DB_URL),
-        conn_max_age=0,
-        ssl_require=True
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
