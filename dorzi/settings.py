@@ -84,7 +84,7 @@ SUPABASE_DB_URL = "postgres://postgres.odlohlzubgqynqroazhf:9TXo4IrKT7qB5m2D@aws
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL', SUPABASE_DB_URL),
-        conn_max_age=600,
+        conn_max_age=0,
         ssl_require=True
     )
 }
